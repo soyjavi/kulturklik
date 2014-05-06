@@ -1,0 +1,122 @@
+{
+  "children": [
+    {
+      "Organism.Header": {
+        "children": [
+          {
+            "Atom.Heading": {
+              "size": "h1",
+              "text": "KulturKlik"
+            }
+          },
+          {
+            "Molecule.Navigation": {
+              "children": [
+                {
+                  "Atom.Button": {
+                    "events": [
+                      "touch"
+                    ],
+                    "icon": "navicon",
+                    "path": "menu"
+                  }
+                }
+              ],
+              "style": "left"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Molecule.Navigation": {
+        "children": [
+          {
+            "Atom.Button": {
+              "events": [
+                "touch"
+              ],
+              "icon": " ",
+              "text": "Hoy",
+              "path": "main/today"
+            }
+          },
+          {
+            "Atom.Button": {
+              "events": [
+                "touch"
+              ],
+              "text": "Mañana",
+              "path": "main/tomorrow"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Organism.Section": {
+        "children": [
+          {
+            "Molecule.List": {
+              "children": [],
+              "id": "list",
+              "bind": {
+                "entity": "Event",
+                "atom": "Atom.Li",
+                "events": "[\"tap\"]",
+                "callbacks": "",
+                "create": true,
+                "update": false,
+                "destroy": false
+              },
+              "events": [
+                "select"
+              ],
+              "callbacks": [
+                "onEvent"
+              ]
+            }
+          }
+        ],
+        "id": "today",
+        "events": [
+          "scroll",
+          "pull"
+        ]
+      }
+    },
+    {
+      "Organism.Section": {
+        "children": [
+          {
+            "Molecule.List": {
+              "children": [],
+              "id": "list",
+              "bind": {
+                "entity": "Event",
+                "atom": "Atom.Li",
+                "events": "[\"tap\"]",
+                "callbacks": "",
+                "create": false,
+                "update": true,
+                "destroy": true
+              },
+              "events": [
+                "select"
+              ],
+              "callbacks": [
+                "onEvent"
+              ]
+            }
+          }
+        ],
+        "id": "tomorrow",
+        "events": [
+          "scroll",
+          "pull"
+        ]
+      }
+    }
+  ],
+  "id": "explorer"
+}

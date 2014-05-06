@@ -1,0 +1,9 @@
+[data-atoms=app]
+  > article > header
+    transition margin-top (ANIMATION_DURATION / 3)
+
+  &.standalone
+    > article > header
+      border-color: THEME
+    > aside > header
+      border-color: darken(DARK, 10%)

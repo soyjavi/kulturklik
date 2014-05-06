@@ -1,0 +1,64 @@
+{
+  "children": [
+    {
+      "Organism.Header": {
+        "children": [
+          {
+            "Atom.Heading": {
+              "size": "h1",
+              "text": "Item"
+            }
+          },
+          {
+            "Molecule.Navigation": {
+              "children": [
+                {
+                  "Atom.Button": {
+                    "events": [
+                      "touch"
+                    ],
+                    "icon": "back",
+                    "path": "back"
+                  }
+                }
+              ],
+              "style": "left"
+            }
+          },
+          {
+            "Molecule.Navigation": {
+              "children": [
+                {
+                  "Atom.Button": {
+                    "events": [
+                      "touch"
+                    ],
+                    "icon": "ios7-star",
+                    "callbacks": [
+                      "onLike"
+                    ]
+                  }
+                }
+              ],
+              "style": "right"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Organism.Section": {
+        "children": [
+          {
+            "Molecule.Carousel": {
+              "children": [],
+              "id": "carousel"
+            }
+          }
+        ],
+        "id": "info"
+      }
+    }
+  ],
+  "id": "item"
+}

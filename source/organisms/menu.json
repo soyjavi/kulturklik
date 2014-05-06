@@ -1,0 +1,44 @@
+{
+  "children": [
+    {
+      "Organism.Header": {
+        "children": [
+          {
+            "Atom.Heading": {
+              "size": "h1",
+              "text": "Categorías"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Organism.Section": {
+        "children": [
+          {
+            "Molecule.List": {
+              "children": [],
+              "id": "list",
+              "events": [
+                "select"
+              ],
+              "bind": {
+                "entity": "Category",
+                "atom": "Li",
+                "events": "[\"tap\"]",
+                "callbacks": "",
+                "create": true,
+                "update": false,
+                "destroy": false
+              }
+            }
+          }
+        ],
+        "id": "categories",
+        "style": "padding"
+      }
+    }
+  ],
+  "id": "menu",
+  "method": "prepend"
+}

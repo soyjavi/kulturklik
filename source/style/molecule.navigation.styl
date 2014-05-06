@@ -1,0 +1,56 @@
+[data-atoms="app"]
+
+  > article > [data-molecule="navigation"]
+    background-color: darken(DARK, 25%)
+    > button.active
+      box-shadow: inset 0 -.25rem THEME
+
+  > article > header [data-molecule="navigation"] button
+    color: lighten(THEME, 75%)
+    &:active
+      color: WHITE !important
+
+  > aside > header [data-molecule="navigation"] button
+    color: lighten(DARK, 75%)
+    &:active
+      color: WHITE !important
+
+  > article > section [data-molecule="navigation"] > [data-atom="button"]
+      &:not(:first-child):not(:last-child)
+        border-radius: 0
+      &:not(:first-child)
+        border-left: solid 1px rgba(0,0,0,0.05)
+      &:first-child
+        border-radius: BORDER_RADIUS 0 0 BORDER_RADIUS
+      &:last-child
+        border-radius: 0 BORDER_RADIUS BORDER_RADIUS 0
+
+  > aside > section [data-molecule="navigation"]
+    & [data-atom="link"]
+      font-weight: normal
+      &:not(.active)
+        color: lighten(DARK, 50%)
+      &.active
+        color: WHITE
+
+  > article > footer [data-molecule="navigation"] button, > article > [data-molecule="navigation"] button
+    color: lighten(DARK, 35%)
+    &:active, &.active
+      color: WHITE
+
+  > article > footer [data-molecule="navigation"] button
+    text-shadow: 0 .1rem darken(DARK, 12.5%)
+    &.active
+      background-color: darken(DARK, 25%)
+
+  > [data-system=modal] > article > footer > nav > button:not(:last-child)
+    border-bottom: solid 1px darken(BACKGROUND, 5%)
+
+@media screen and (min-width: 1024px)
+  [data-atoms="app"]
+    > article > header [data-molecule="navigation"] button:hover
+      color: WHITE !important
+
+    > article > footer [data-molecule="navigation"] button, > article > [data-molecule="navigation"] button
+      &:hover
+        color: WHITE

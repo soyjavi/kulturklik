@@ -1,0 +1,11 @@
+{
+  "children": [
+    {
+      "Organism.AppnimaSession": {
+        "children": [],
+        "id": "appnima"
+      }
+    }
+  ],
+  "id": "session"
+}

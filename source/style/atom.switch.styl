@@ -1,0 +1,19 @@
+[data-atoms="app"]
+
+  input[type=checkbox]
+    border: none
+    border-radius: RADIUS = 1rem
+    background-color: lighten(FORM_COLOR, 30%)
+    transition all 300ms 150ms
+    overflow: hidden
+
+    &:after
+      background-color: lighten(FORM_COLOR, 95%)
+      border: none
+      border-radius: RADIUS
+      transition left 150ms
+
+    &:checked
+      background-color: THEME
+      &:after
+        border-color: SUCCESS

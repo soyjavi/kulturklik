@@ -1,0 +1,58 @@
+[data-atoms="app"]
+
+  input[type="text"], input[type="password"], input[type="date"], input[type="datetime"], input[type="email"], input[type="number"], input[type="search"], input[type="tel"], input[type="time"], input[type="url"], select, textarea, label.select
+    font-family: "Helvetica Neue", "Helvetica", Arial
+    font-size: FONT_SIZE_NORMAL
+    font-weight: FONT_WEIGHT_BOLD
+    background-color: WHITE
+    border: 1px solid FORM_COLOR
+    border-radius: BORDER_RADIUS
+
+    color: DARK
+    transition background-color ANIMATION_DURATION ANIMATION_EASE
+
+    &:focus
+      border-color: THEME
+      background-color: WHITE
+
+    &.error, &.required
+      color: darken(CANCEL, 5%)
+      background-color: lighten(CANCEL, 92.5%)
+      border-color: lighten(CANCEL, 20%)
+      &::-webkit-input-placeholder
+        color: lighten(CANCEL, 40%)
+      &::-moz-placeholder
+        color: lighten(CANCEL, 40%)
+      &:-ms-input-placeholder
+        color: lighten(CANCEL, 40%)
+
+    &[disabled]
+      background-color: darken(BACKGROUND, 5%)
+      border-color: darken(BACKGROUND, 10%)
+      color: darken(FORM_COLOR, 25%)
+
+    &::-webkit-input-placeholder
+      color: FORM_COLOR
+      font-weight: FONT_WEIGHT_THIN
+    &::-moz-placeholder
+      color: FORM_COLOR
+      font-weight: FONT_WEIGHT_THIN
+    &::-ms-input-placeholder
+      color: FORM_COLOR
+      font-weight: FONT_WEIGHT_THIN
+
+
+  input[type=range]
+    background-color: FORM_COLOR
+    border-radius: (BORDER_RADIUS / 2)
+    &:active
+      background-color: THEME !important
+    &::-webkit-slider-thumb
+      border-radius: 50%
+      background-color: lighten(FORM_COLOR, 95%)
+      border: 1px solid FORM_COLOR
+
+
+@media screen and (min-width: 1024px)
+  [data-atoms="app"] input[type=range]:hover
+    background-color: THEME !important

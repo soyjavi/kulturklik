@@ -38,7 +38,7 @@
               ],
               "icon": " ",
               "text": "Hoy",
-              "path": "main/today"
+              "path": "explorer/today"
             }
           },
           {
@@ -47,7 +47,16 @@
                 "touch"
               ],
               "text": "Mañana",
-              "path": "main/tomorrow"
+              "path": "explorer/tomorrow"
+            }
+          },
+          {
+            "Atom.Button": {
+              "events": [
+                "touch"
+              ],
+              "text": "Favoritos",
+              "path": "explorer/likes"
             }
           }
         ]
@@ -63,11 +72,10 @@
               "bind": {
                 "entity": "Event",
                 "atom": "Atom.Li",
-                "events": "[\"tap\"]",
-                "callbacks": "",
+                "events": ["tap"],
                 "create": true,
                 "update": false,
-                "destroy": false
+                "destroy": true
               },
               "events": [
                 "select"
@@ -95,10 +103,9 @@
               "bind": {
                 "entity": "Event",
                 "atom": "Atom.Li",
-                "events": "[\"tap\"]",
-                "callbacks": "",
+                "events": ["tap"],
                 "create": false,
-                "update": true,
+                "update": false,
                 "destroy": true
               },
               "events": [

@@ -17,16 +17,13 @@
         "children": [
           {
             "Molecule.List": {
-              "children": [],
               "id": "list",
-              "events": [
-                "select"
-              ],
+              "events": ["select"],
+              "callbacks": ["onCategory"],
               "bind": {
                 "entity": "Category",
-                "atom": "Li",
-                "events": "[\"tap\"]",
-                "callbacks": "",
+                "atom": "Atom.Li",
+                "events": ["tap"],
                 "create": true,
                 "update": false,
                 "destroy": false

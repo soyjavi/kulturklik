@@ -14,9 +14,6 @@
               "children": [
                 {
                   "Atom.Button": {
-                    "events": [
-                      "touch"
-                    ],
                     "icon": "back",
                     "path": "back"
                   }
@@ -50,10 +47,16 @@
       "Organism.Section": {
         "children": [
           {
-            "Molecule.Carousel": {
-              "children": [],
-              "id": "carousel"
-            }
+            "Atom.Figure": {"id": "image"}
+          },
+          {
+            "Atom.Heading": {"id": "title"}
+          },
+          {
+            "Atom.Heading": {"id": "description", "size": "h6"}
+          },
+          {
+            "Atom.GMap": {"id": "map", "style": "small"}
           }
         ],
         "id": "info"

@@ -23,7 +23,7 @@ class Atoms.Organism.Explorer extends Atoms.Organism.Article
   onSectionPull: (event, dispatcher, hierarchy...) ->
     do @fetch 0
 
-  fetch: (@page=0, @category) ->
+  fetch: (@page=0, @category=undefined) ->
     Atoms.Entity.Event.destroyAll() if @page is 0
     @fetching = true
 
@@ -31,8 +31,11 @@ class Atoms.Organism.Explorer extends Atoms.Organism.Article
     attributes =
       page      : @page
       started_at: "2014/05/07"
+      # latitude  : 42.85
+      # longitude : -2.67
+      # radio     : 100
+
     attributes.category = @category if @category
-    console.log attributes
     KulturKlik.proxy("GET", "search", attributes).then (error, response) =>
       @today.refresh()
       for result in response.results

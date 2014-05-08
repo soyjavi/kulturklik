@@ -1,0 +1,27 @@
+id: aside
+method: prepend
+
+children:
+  - Organism.Header:
+      children:
+        - Atom.Heading:
+            size: h1
+            text: Categorías
+  - Organism.Section:
+      id: categories
+      style: padding
+      children:
+        - Molecule.List:
+            children: []
+            id: list
+            events:
+              - select
+            callbacks:
+              - onCategory
+            bind:
+              entity: Category
+              atom: Atom.Li
+              events: ["tap"]
+              create: true
+              update: false
+              destroy: false

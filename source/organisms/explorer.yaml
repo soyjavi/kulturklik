@@ -1,0 +1,92 @@
+id: explorer
+children:
+  - Organism.Header:
+      children:
+        - Atom.Heading:
+            size: h1
+            text: KulturKlik
+        - Molecule.Navigation:
+            style: left
+            children:
+              - Atom.Button:
+                  icon: navicon
+                  path: menu
+
+  - Molecule.Navigation:
+      children:
+        - Atom.Button:
+            text: Hoy
+            path: explorer/today
+        - Atom.Button:
+            text: Mañana
+            path: explorer/tomorrow
+        - Atom.Button:
+            text: Favorítos
+            path: explorer/likes
+
+  - Organism.Section:
+      id: today
+      events:
+        - scroll
+        - pull
+      children:
+        - Molecule.List:
+            children: []
+            id: list
+            bind:
+              entity: Event
+              atom: Atom.Li
+              events:
+                - tap
+              create: true
+              update: false
+              destroy: true
+            events:
+              - select
+            callbacks:
+              - onEvent
+
+  - Organism.Section:
+      id: tomorrow
+      events:
+        - scroll
+        - pull
+      children:
+        - Molecule.List:
+            id: list
+            children: []
+            events:
+              - select
+            callbacks:
+              - onEvent
+            bind:
+              entity: Event
+              atom: Atom.Li
+              events:
+                - tap
+              create: false
+              update: false
+              destroy: true
+
+
+  - Organism.Section:
+      id: likes
+      events:
+        - scroll
+        - pull
+      children:
+        - Molecule.List:
+            id: list
+            children: []
+            events:
+              - select
+            callbacks:
+              - onEvent
+            bind:
+              entity: Like
+              atom: Atom.Li
+              events:
+                - tap
+              create: true
+              update: false
+              destroy: true

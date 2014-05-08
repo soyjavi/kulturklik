@@ -1,0 +1,18 @@
+id: session
+children:
+  - Organism.AppnimaSession:
+      id: appnima
+      events:
+        - login
+        - signup
+        - error
+      callbacks:
+        - onLogin
+        - onSignup
+        - onError
+      children:
+        - Atom.Image:
+            url: /assets/images/logo.png
+        - Molecule.Form:
+        - Atom.Heading:
+            text: soyjavi © All Rights Reserved

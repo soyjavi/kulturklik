@@ -1,0 +1,56 @@
+id: item
+children:
+  - Organism.Header:
+      children:
+        - Atom.Heading:
+            text: Music
+        - Molecule.Navigation:
+            children:
+              - Atom.Button:
+                  icon: back
+                  path: back
+            style: left
+        - Molecule.Navigation:
+            children:
+              - Atom.Button:
+                  icon: ios7-star
+                  callbacks:
+                    - onLike
+            style: right
+
+  - Organism.Section:
+      id: info
+      children:
+        - Atom.Figure:
+            id: image
+            style: big
+        - Molecule.Div:
+            id: general
+            style: margin-all
+            children:
+              - Atom.Heading:
+                  id: title
+              - Molecule.Tags:
+                  id: tags
+              - Atom.Label:
+                  id: price
+        - Molecule.Div:
+            id: location
+            style: margin-left margin-right
+            children:
+              - Atom.GMap:
+                  style: small
+              - Atom.Label:
+                  icon: map
+                  text: "Campo Volantin, 17 Bajo Izq"
+        - Molecule.Div:
+            style: margin-left margin-right
+            children:
+              - Atom.Heading:
+                  size: h6
+                  id: description
+                  text: asd
+              - Atom.Button:
+                  style: fluid
+                  icon: map
+                  text: Más información

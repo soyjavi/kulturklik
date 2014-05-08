@@ -7,10 +7,16 @@
   &.active
     &[data-state="in"]
       z-index: 0
-      vendor(animation-name, aside-in)
+      &:not(.right)
+        vendor(animation-name, aside-in)
+      &.right
+        vendor(animation-name, aside-in-right)
     &[data-state="out"]
       z-index: -1
-      vendor(animation-name, aside-in)
+      &:not(.right)
+        vendor(animation-name, aside-in)
+      &.right
+        vendor(animation-name, aside-in-right)
       vendor(animation-direction, reverse)
       vendor(animation-fill-mode, forwards)
 
@@ -22,5 +28,11 @@ TRANSLATE = -25%
 @keyframes aside-in
   0%
     transform: translateX(TRANSLATE)
+  100%
+    transform: translateX(0)
+
+@keyframes aside-in-right
+  0%
+    transform: translateX(-(TRANSLATE))
   100%
     transform: translateX(0)

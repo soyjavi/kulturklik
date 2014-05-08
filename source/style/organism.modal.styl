@@ -15,14 +15,14 @@
         vendor(animation-direction, reverse)
         vendor(animation-fill-mode, forwards)
 
-    & > [data-organism=loading]
+    & > [data-extend=loading]
       SPEED = ANIMATION_DURATION * 1.4
       &::before
         animation modal-loading SPEED 0 infinite
       &::after
         animation modal-loading SPEED (SPEED / 2) infinite
 
-  & > :not([data-organism=loading])
+  & > :not([data-extend=loading])
     &.accept > header
       background-color: ACCEPT
     &.cancel > header
@@ -38,7 +38,7 @@
       background-color: WHITE
       color: COLOR
 
-  & > [data-organism=loading]
+  & > [data-extend=loading]
     background: darken(DARK, 50%)
     border-radius: 1rem
     &::before, &::after

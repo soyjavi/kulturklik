@@ -26,7 +26,7 @@ module.exports = (grunt) ->
         'source/style/app.styl'
         'source/style/app.*.styl']
       scaffold: [
-        'source/organisms/*.json']
+        'source/organisms/*.yaml']
 
     build:
       js: [
@@ -57,20 +57,22 @@ module.exports = (grunt) ->
         options: mangle: false
         files: '<%= meta.build %>/js/atoms.js'                    : '<%= build.js %>'
 
-    copy:
+    yaml:
       scaffold:
-        expand  : true
-        flatten : true
-        src     : '<%= source.scaffold %>'
-        dest    : '<%= meta.build %>/scaffold/'
+        options:
+          space: 2
+        files: [
+          expand  : true
+          flatten : true
+          src     : '<%= source.scaffold %>'
+          dest    : '<%= meta.build %>/scaffold/'
+        ]
 
     notify:
       coffee:
         options: title: 'atoms.<%= pkg.name %>.js', message: 'grunt:uglify:app'
       stylus:
         options: title: 'atoms.<%= pkg.name %>.css', message: 'grunt:stylus:app'
-      scaffold:
-        options: title: 'Scaffold updated', message: 'grunt:copy:scaffold'
 
     watch:
       coffee:
@@ -81,14 +83,14 @@ module.exports = (grunt) ->
         tasks: ['stylus:app', 'notify:stylus']
       scaffold:
         files: ['<%= source.scaffold %>']
-        tasks: ['copy:scaffold', 'notify:scaffold']
+        tasks: ['yaml:scaffold']
 
   grunt.loadNpmTasks 'grunt-contrib-coffee'
   grunt.loadNpmTasks 'grunt-contrib-concat'
   grunt.loadNpmTasks 'grunt-contrib-uglify'
   grunt.loadNpmTasks 'grunt-contrib-stylus'
-  grunt.loadNpmTasks 'grunt-contrib-copy'
+  grunt.loadNpmTasks 'grunt-yaml'
   grunt.loadNpmTasks 'grunt-notify'
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
-  grunt.registerTask 'default', ['concat:app', 'coffee:app', 'uglify:app', 'stylus:app', 'copy:scaffold']
+  grunt.registerTask 'default', ['concat:app', 'coffee:app', 'uglify:app', 'stylus:app', 'yaml:scaffold']

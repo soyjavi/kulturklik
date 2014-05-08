@@ -6,7 +6,11 @@
   vendor(animation-timing-function, ANIMATION_EASE)
   &.active
     &.aside
-      left: ASIDE_WIDTH
+      &:not(.right)
+        left: ASIDE_WIDTH
+      &.right
+        right: ASIDE_WIDTH
+
     &[data-state="in"]
       z-index: 2
       &:not(.cover)
@@ -22,6 +26,7 @@
       &:not(.cover)
         vendor(animation-name, article-in)
       &.cover
+        vendor(animation-delay, ANIMATION_DURATION)
         vendor(animation-name, article-in-cover)
     &[data-state="back-in"]
       z-index: 1
@@ -38,13 +43,24 @@
         vendor(animation-name, article-out)
       &.cover
         vendor(animation-name, article-out-cover)
+
     &[data-state="aside-show"]
-      vendor(animation-name, article-aside)
       vendor(animation-fill-mode, forwards)
-    &[data-state="aside-hide"]
       vendor(animation-name, article-aside)
+
+    &[data-state="aside-hide"]
       vendor(animation-direction, reverse)
       vendor(animation-fill-mode, forwards)
+      vendor(animation-name, article-aside)
+
+    &[data-state="aside-show-right"]
+      vendor(animation-fill-mode, forwards)
+      vendor(animation-name, article-aside-right)
+
+    &[data-state="aside-hide-right"]
+      vendor(animation-direction, reverse)
+      vendor(animation-fill-mode, forwards)
+      vendor(animation-name, article-aside-right)
 
   header
     background-color: THEME
@@ -88,3 +104,9 @@ SCALE     = 0.9
     transform: translateX(0)
   100%
     transform: translateX(ASIDE_WIDTH)
+
+@keyframes article-aside-right
+  0%
+    transform: translateX(0)
+  100%
+    transform: translateX(-(ASIDE_WIDTH))

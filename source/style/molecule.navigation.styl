@@ -2,11 +2,8 @@
 
   > article > [data-molecule="navigation"]
     background-color: darken(DARK, 25%)
-    > button
-      font-size: FONT_SIZE_TINY
-      font-weight: FONT_WEIGHT_BOLD !important
-      &.active
-        box-shadow: inset 0 -.25rem THEME
+    > button.active
+      box-shadow: inset 0 -.25rem THEME
 
   > article > header [data-molecule="navigation"] button
     color: lighten(THEME, 75%)

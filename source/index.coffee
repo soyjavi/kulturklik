@@ -1,19 +1,26 @@
 Atoms.$ ->
-  __.Aside.Menu.render()
-  Atoms.Url.path "explorer/today"
-
+  session = __.Article.Session.get()
+  session = true
+  if session
+    __.Aside.Menu.render()
+    Atoms.Url.path "explorer/today"
+  else
+    Atoms.Url.path "session/appnima"
 
 window.KulturKlik = do ->
+
+  STORAGE_KEY = "kulturklik"
 
   _proxy = (type, method, parameters = {}, background = false) ->
     promise = new Hope.Promise()
     unless background then do __.Modal.Loading.show
 
+    session = __.Article.Session.get()
     token = if session? then session.token else null
 
     $$.ajax
       # url         : "http://devcast.co/culture/#{method}"
-      url         : "http://0.0.0.0:1337/culture/#{method}"
+      url         : "http://192.168.1.129:1337/culture/#{method}"
       type        : type
       data        : parameters
       contentType : "application/x-www-form-urlencoded"
@@ -29,4 +36,4 @@ window.KulturKlik = do ->
         promise.done error, null
     promise
 
-  proxy : _proxy
+  proxy     : _proxy

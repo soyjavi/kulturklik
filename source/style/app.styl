@@ -1,19 +1,61 @@
 [data-atoms="app"], html
-  font-family: "Open Sans", "sans-serif"
-  // font-family: "Roboto", "Helvetica Neue", "Helvetica", "Arial", sans-serif
+  font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif
   font-weight: FONT_WEIGHT_THIN
   font-size: 16px
   background: darken(DARK, 100%)
 
 [data-atoms=app]
-  [data-organism=item]
+  [data-organism=article][data-extend=item]
     > section
-      > figure
-        min-height: 192px
-        background-size: cover
-      > [data-atom=heading]
-        margin: .75rem .75rem 0 .75rem
-      > h1
+
+      > .glass
+        text-align: center
+        // background-color: rgba(0,0,0,0.5)
+
+        // color: white
+        // position: absolute
+        // top: 0px
+        // height: 128px
+        // width: 100%
+        > label
+          display: block
+
+      h1
         font-size: 1.05rem !important
+        color: THEME
+      h2
+        font-size: FONT_SIZE_TINY
       > h6
         text-align: justify
+      > div
+        width: auto
+        text-align: justify
+        font-size: FONT_SIZE_SMALL
+
+    > header
+      &.category_0
+        background-color: C_0
+      &.category_1
+        background-color: C_1
+      &.category_2
+        background-color: C_2
+      &.category_3
+        background-color: C_3
+      &.category_4
+        background-color: C_4
+      &.category_5
+        background-color: C_5
+      &.category_6
+        background-color: C_6
+      &.category_7
+        background-color: C_7
+      &.category_8
+        background-color: C_8
+      &.category_9
+        background-color: C_9
+      &.category_10
+        background-color: C_10
+      &.category_11
+        background-color: C_11
+      &.category_12
+        background-color: C_12

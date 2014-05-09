@@ -4,42 +4,69 @@ class Atoms.Organism.Explorer extends Atoms.Organism.Article
 
   @scaffold "assets/scaffold/explorer.json"
 
-  page: 0
   fetching: false
+
+  page:
+    today   : 0
+    tomorrow: 0
+    likes   : 0
 
   render: ->
     super
+    @context = "today"
     do @fetch
 
   # Children bubble events
+  onContext: (event, dispatcher) ->
+    @context =  dispatcher.attributes.path.split("/").pop()
+    @fetch 0, @category if @page[@context] is 0
+
   onEvent: (atom, dispatcher, hierarchy...) ->
     __.Article.Item.fetch atom.entity if atom.entity?
 
   onSectionScroll: (event, dispatcher, hierarchy...) ->
-    super
+    if event.scroll > 128
+      super
     if not @fetching and event.down and (event.height - event.scroll) < 128
-      @fetch @page
+      @fetch @page[@context]
 
   onSectionPull: (event, dispatcher, hierarchy...) ->
-    do @fetch 0
+    @fetch 0, @category
 
-  fetch: (@page=0, @category=undefined) ->
-    Atoms.Entity.Event.destroyAll() if @page is 0
+  # Private methods
+  fetch: (page=0, @category=undefined) ->
     @fetching = true
 
-    @page++
-    attributes =
-      page      : @page
-      started_at: "2014/05/07"
-      # latitude  : 42.85
-      # longitude : -2.67
-      # radio     : 100
+    date =
+      today: moment().format("YYYY/MM/DD")
+      tomorrow: moment().add('days', 1).format("YYYY/MM/DD")
 
-    attributes.category = @category if @category
-    KulturKlik.proxy("GET", "search", attributes).then (error, response) =>
-      @today.refresh()
-      for result in response.results
-        Atoms.Entity.Event.create result
+    if page is 0
+      Atoms.Entity.Event.destroyAll()
+      @page[@context] = 0
+
+    @page[@context]++
+
+    parameters =
+      started_at: date[@context]
+      page      : @page[@context]
+      # latitude  : position.coords.latitude
+      # longitude : position.coords.longitude
+      # radio     : 100
+    parameters.category = @category if @category
+
+    console.info @context, @category, parameters
+
+    KulturKlik.proxy("GET", "search", parameters).then (error, response) =>
+      @[@context].refresh()
+      events = (Atoms.Entity.Event.create result for result in response.results)
+      @[@context].list.entity events
       @fetching = false if response.results.length is 32
+
+  __position: ->
+    promise = new Hope.promise()
+    window.navigator.geolocation.getCurrentPosition (position, error) ->
+      promise.done null, latitude: position.coords.latitude, longitude:  position.coords.longitude
+    promise
 
 new Atoms.Organism.Explorer()

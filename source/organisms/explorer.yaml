@@ -13,6 +13,10 @@ children:
                   path: menu
 
   - Molecule.Navigation:
+      events:
+        - select
+      callbacks:
+        - onContext
       children:
         - Atom.Button:
             text: Hoy
@@ -20,9 +24,9 @@ children:
         - Atom.Button:
             text: Mañana
             path: explorer/tomorrow
-        - Atom.Button:
-            text: Favorítos
-            path: explorer/likes
+        # - Atom.Button:
+        #     text: Favorítos
+        #     path: explorer/likes
 
   - Organism.Section:
       id: today
@@ -37,8 +41,8 @@ children:
               entity: Event
               atom: Atom.Li
               events:
-                - tap
-              create: true
+                - singleTap
+              create: false
               update: false
               destroy: true
             events:
@@ -63,8 +67,8 @@ children:
               entity: Event
               atom: Atom.Li
               events:
-                - tap
-              create: false
+                - singleTap
+              create: true
               update: false
               destroy: true
 
@@ -86,7 +90,7 @@ children:
               entity: Like
               atom: Atom.Li
               events:
-                - tap
+                - singleTap
               create: true
               update: false
               destroy: true

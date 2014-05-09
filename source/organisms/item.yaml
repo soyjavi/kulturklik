@@ -1,22 +1,23 @@
 id: item
 children:
   - Organism.Header:
+      id: header
       children:
         - Atom.Heading:
-            text: Music
+            id: title
         - Molecule.Navigation:
+            style: left
             children:
               - Atom.Button:
                   icon: back
                   path: back
-            style: left
         - Molecule.Navigation:
+            style: right
             children:
               - Atom.Button:
                   icon: ios7-star
                   callbacks:
                     - onLike
-            style: right
 
   - Organism.Section:
       id: info
@@ -26,31 +27,33 @@ children:
             style: big
         - Molecule.Div:
             id: general
-            style: margin-all
+            style: padding-all glass
             children:
               - Atom.Heading:
                   id: title
-              - Molecule.Tags:
-                  id: tags
+              - Atom.Heading:
+                  id: address
+                  size: h2
+              - Atom.Label:
+                  id: schedule
+                  icon: ios7-clock-outline
               - Atom.Label:
                   id: price
+                  icon: card
+              - Molecule.Tags:
+                  id: tags
         - Molecule.Div:
-            id: location
-            style: margin-left margin-right
+            id: schedule
             children:
-              - Atom.GMap:
-                  style: small
               - Atom.Label:
-                  icon: map
-                  text: "Campo Volantin, 17 Bajo Izq"
+                  id: started_at
+              - Atom.Label:
+                  id: finished_at
+              - Atom.Label:
+                  id: schedule
+        - Atom.GMap:
+            id: map
+            style: small margin-left margin-right
         - Molecule.Div:
-            style: margin-left margin-right
-            children:
-              - Atom.Heading:
-                  size: h6
-                  id: description
-                  text: asd
-              - Atom.Button:
-                  style: fluid
-                  icon: map
-                  text: Más información
+            id: description
+            style: margin-all

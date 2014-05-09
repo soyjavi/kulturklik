@@ -2,10 +2,13 @@
   [data-molecule=div][data-extend=tags]
     > [data-atom=label]
       font-weight: FONT_WEIGHT_BOLD
+      text-transform: lowercase
       border-radius: FONT_SIZE_TINY
       background-color: darken(BACKGROUND, 20%)
       color: WHITE
 
+      &.theme
+        background-color: THEME
       &.accept
         background-color: ACCEPT
       &.cancel

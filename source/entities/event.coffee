@@ -6,10 +6,11 @@ class Atoms.Entity.Event extends Atoms.Class.Entity
            "category", "tags", "type",
            "price",
            "address", "position",
-           "started_at", "finished_at", "created_at"
+           "started_at", "finished_at", "schedule", "created_at"
 
   parse: ->
     image       : @image
-    info        : moment(@started_at).startOf('hour').fromNow()
+    info        :  if value? and value.substr(2, 1) is ":" then value.substr(0,5) else ""
     text        : @title
-    description : @category
+    description : @address
+    style       : "category_#{@category.id}"

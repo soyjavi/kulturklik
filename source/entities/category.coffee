@@ -2,8 +2,9 @@
 
 class Atoms.Entity.Category extends Atoms.Class.Entity
 
-  @fields "name"
+  @fields "id", "name", "count"
 
   parse: ->
     text        : @name
-    style       : @name.toLowerCase().split(" ")[0]
+    info        : @count
+    style       : "category_#{@id}"

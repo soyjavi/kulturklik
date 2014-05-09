@@ -5,17 +5,19 @@ class Atoms.Organism.Item extends Atoms.Organism.Article
   # Instance events
   fetch: (@current) ->
     Atoms.Url.path "item/info"
+
+    style = "category_#{@current.category.id}"
     # Header
-    @header.el.attr "class", "c_#{@current.category.id}"
+    # @header.el.attr "class", style
     @header.title.el.html @current.category.name
 
     # Section
     do @_reset
 
     @info.image.el.show().css "background-image", "url(#{@current.image})" if @current.image?
-    @info.general.title.el.html @current.title
+    @info.general.title.el.html(current.title).attr "class", style
 
-    @info.general.tags.appendChild "Atom.Label", text: @current.type, style: "theme"
+    @info.general.tags.appendChild "Atom.Label", text: @current.type, style: style
     for tag in @current.tags when tag.indexOf(" ") is -1
       @info.general.tags.appendChild "Atom.Label", text: tag
 
@@ -24,9 +26,8 @@ class Atoms.Organism.Item extends Atoms.Organism.Article
     # @info.general.finished_at.el.html @current.finished_at
     @info.general.address.el.html @current.address
     @info.general.schedule.el.html @current.schedule
-    return
     @info.description.el.show().html @current.description if @current.description?
-    @info.general.price.el.show().html @current.price if @current.price?
+    # @info.general.price.el.show().html @current.price if @current.price?
 
     if @current.position?.length is 2
       @info.map.el.show()

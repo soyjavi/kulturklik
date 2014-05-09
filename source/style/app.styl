@@ -10,19 +10,12 @@
 
       > .glass
         text-align: center
-        // background-color: rgba(0,0,0,0.5)
-
-        // color: white
-        // position: absolute
-        // top: 0px
-        // height: 128px
-        // width: 100%
         > label
           display: block
 
       h1
         font-size: 1.05rem !important
-        color: THEME
+        text-shadow 0 1px WHITE
       h2
         font-size: FONT_SIZE_TINY
       > h6
@@ -32,7 +25,7 @@
         text-align: justify
         font-size: FONT_SIZE_SMALL
 
-    > header
+    & > header, & > section [data-atom=label]
       &.category_0
         background-color: C_0
       &.category_1
@@ -59,3 +52,31 @@
         background-color: C_11
       &.category_12
         background-color: C_12
+
+    & > section h1
+      &.category_0
+        color: C_0
+      &.category_1
+        color: C_1
+      &.category_2
+        color: C_2
+      &.category_3
+        color: C_3
+      &.category_4
+        color: C_4
+      &.category_5
+        color: C_5
+      &.category_6
+        color: C_6
+      &.category_7
+        color: C_7
+      &.category_8
+        color: C_8
+      &.category_9
+        color: C_9
+      &.category_10
+        color: C_10
+      &.category_11
+        color: C_11
+      &.category_12
+        color: C_12

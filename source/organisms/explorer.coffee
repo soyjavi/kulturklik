@@ -6,13 +6,9 @@ class Atoms.Organism.Explorer extends Atoms.Organism.Article
 
   fetching: false
 
-  page:
-    today   : 0
-    tomorrow: 0
-    likes   : 0
-
   render: ->
     super
+    do @__resetPages
     @context = "today"
     do @fetch
 
@@ -25,26 +21,27 @@ class Atoms.Organism.Explorer extends Atoms.Organism.Article
     __.Article.Item.fetch atom.entity if atom.entity?
 
   onSectionScroll: (event, dispatcher, hierarchy...) ->
-    if event.scroll > 128
-      super
+    super
     if not @fetching and event.down and (event.height - event.scroll) < 128
-      @fetch @page[@context]
+      @fetch @page[@context], @category
 
   onSectionPull: (event, dispatcher, hierarchy...) ->
-    @fetch 0, @category
+    @fetch 0, @category, destroy = true
 
   # Private methods
-  fetch: (page=0, @category=undefined) ->
+  fetch: (page=0, @category=undefined, destroy = false) ->
+    __.Modal.Loading.show()
     @fetching = true
 
     date =
-      today: moment().format("YYYY/MM/DD")
+      today   : moment().format("YYYY/MM/DD")
       tomorrow: moment().add('days', 1).format("YYYY/MM/DD")
 
-    if page is 0
+    if destroy
       Atoms.Entity.Event.destroyAll()
-      @page[@context] = 0
+      do @__resetPages
 
+    @page[@context] = 0 if page is 0
     @page[@context]++
 
     parameters =
@@ -55,18 +52,27 @@ class Atoms.Organism.Explorer extends Atoms.Organism.Article
       # radio     : 100
     parameters.category = @category if @category
 
-    console.info @context, @category, parameters
+    console.info @context, @category, @page[@context], parameters
 
-    KulturKlik.proxy("GET", "search", parameters).then (error, response) =>
-      @[@context].refresh()
+    KulturKlik.proxy("GET", "search", parameters, background = true).then (error, response) =>
+      console.log "GET/search", response.results.length
       events = (Atoms.Entity.Event.create result for result in response.results)
-      @[@context].list.entity events
+
+      @[@context].list.entity events, append = true
       @fetching = false if response.results.length is 32
+      @[@context].refresh()
+      __.Modal.Loading.hide()
 
   __position: ->
     promise = new Hope.promise()
     window.navigator.geolocation.getCurrentPosition (position, error) ->
       promise.done null, latitude: position.coords.latitude, longitude:  position.coords.longitude
     promise
+
+  __resetPages: ->
+    @page =
+      today   : 0
+      tomorrow: 0
+      likes   : 0
 
 new Atoms.Organism.Explorer()

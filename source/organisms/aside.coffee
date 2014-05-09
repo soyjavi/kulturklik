@@ -13,7 +13,7 @@ class Atoms.Organism.Menu extends Atoms.Organism.Aside
   # Children bubble events
   onCategory: (atom, dispatcher, hierarchy...) ->
     category = if atom.entity.id? then atom.entity.id or ""
-    __.Article.Explorer.fetch 0, category
+    __.Article.Explorer.fetch 0, category, destroy = true
     __.Article.Explorer.aside "menu"
 
     atom.el.addClass("active").siblings().removeClass("active")

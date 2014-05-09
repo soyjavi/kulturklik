@@ -35,15 +35,12 @@ children:
         - pull
       children:
         - Molecule.List:
-            children: []
             id: list
             bind:
               entity: Event
               atom: Atom.Li
               events:
                 - singleTap
-              create: false
-              update: false
               destroy: true
             events:
               - select
@@ -58,7 +55,6 @@ children:
       children:
         - Molecule.List:
             id: list
-            children: []
             events:
               - select
             callbacks:
@@ -68,8 +64,6 @@ children:
               atom: Atom.Li
               events:
                 - singleTap
-              create: true
-              update: false
               destroy: true
 
 
@@ -81,7 +75,6 @@ children:
       children:
         - Molecule.List:
             id: list
-            children: []
             events:
               - select
             callbacks:

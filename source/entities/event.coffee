@@ -10,7 +10,11 @@ class Atoms.Entity.Event extends Atoms.Class.Entity
 
   parse: ->
     image       : @image
-    info        :  if value? and value.substr(2, 1) is ":" then value.substr(0,5) else ""
+    info        : __schedule @schedule
     text        : @title
     description : @address
     style       : "category_#{@category.id}"
+
+__schedule = (value) ->
+  if value? and value.substr(2, 1) is ":" then value.substr(0,5) else ""
+

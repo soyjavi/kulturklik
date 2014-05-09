@@ -10,68 +10,90 @@
 
     &.category_0
       box-shadow inset WIDTH 0 C_0
+      span
+        background-color: C_0
     &.category_1
       box-shadow inset WIDTH 0 C_1
+      span
+        background-color: C_1
     &.category_2
       box-shadow inset WIDTH 0 C_2
+      span
+        background-color: C_2
     &.category_3
       box-shadow inset WIDTH 0 C_3
+      span
+        background-color: C_3
     &.category_4
       box-shadow inset WIDTH 0 C_4
+      span
+        background-color: C_4
     &.category_5
       box-shadow inset WIDTH 0 C_5
+      span
+        background-color: C_5
     &.category_6
       box-shadow inset WIDTH 0 C_6
+      span
+        background-color: C_6
     &.category_7
       box-shadow inset WIDTH 0 C_7
+      span
+        background-color: C_7
     &.category_8
       box-shadow inset WIDTH 0 C_8
+      span
+        background-color: C_8
     &.category_9
       box-shadow inset WIDTH 0 C_9
+      span
+        background-color: C_9
     &.category_10
       box-shadow inset WIDTH 0 C_10
+      span
+        background-color: C_10
     &.category_11
       box-shadow inset WIDTH 0 C_11
+      span
+        background-color: C_11
     &.category_12
       box-shadow inset WIDTH 0 C_12
+      span
+        background-color: C_12
+
+    span
+      padding: 0 .25rem
+      font-size: FONT_SIZE_TINY !important
+      font-weight: FONT_WEIGHT_BOLD
+      color: WHITE
+      border-radius: (FONT_SIZE_TINY / 2)
 
 
   article [data-atom=li]
     padding: 0 0 0 WIDTH !important
     > figure
-      height: SIZE = 3.75rem !important
+      height: SIZE = 3.4rem !important
       width: SIZE
       margin-right: 0
 
     > div
-      PADDING = .5rem
-      small, strong
-        margin-left: PADDING !important
-        font-size: FONT_SIZE_SMALL
+      margin: .5rem
+      height: 2.35rem
       strong
-        margin-top: PADDING
+        font-size: FONT_SIZE_NORMAL
         font-weight: FONT_WEIGHT_BOLD
+        line-height: FONT_SIZE_BIG
       small
-        margin-bottom: PADDING
+        font-size: FONT_SIZE_TINY
         font-weight: FONT_WEIGHT_THIN
-
-      span
-        margin-top: PADDING
-        margin-right: PADDING
-        padding: 0 (PADDING / 2)
-        font-size: FONT_SIZE_TINY !important
-        font-weight: FONT_WEIGHT_BOLD
-        background-color: THEME
-        color: WHITE
-        border-radius: PADDING
-
+        line-height: FONT_SIZE_NORMAL
+        color: lighten(DARK, 25%)
 
   aside [data-atom=li]
     strong
       font-size: FONT_SIZE_TINY
     &.active
-      background-color: THEME
-      font-weight: FONT_WEIGHT_BOLD
+      font-weight: FONT_WEIGHT_BOLD !important
       &.category_0
         background-color: C_0
       &.category_1

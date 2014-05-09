@@ -42,6 +42,7 @@ children:
                   icon: card
               - Molecule.Tags:
                   id: tags
+                  style: margin-top
         - Molecule.Div:
             id: schedule
             children:

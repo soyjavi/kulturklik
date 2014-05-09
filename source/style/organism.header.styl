@@ -2,6 +2,12 @@
   > article > header
     transition margin-top (ANIMATION_DURATION / 3)
 
+    > [data-atom=heading]
+      overflow: hidden
+      white-space: nowrap
+      text-overflow: ellipsis
+      display: block
+
   &.standalone
     > article > header
       border-color: THEME

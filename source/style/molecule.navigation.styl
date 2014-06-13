@@ -1,21 +1,37 @@
 [data-atoms="app"]
 
-  > article > [data-molecule="navigation"]
-    background-color: darken(DARK, 25%)
-    > button.active
-      box-shadow: inset 0 -.25rem THEME
+  > article > [data-molecule=navigation]
+    background-color: THEME
+    transition margin-top (ANIMATION_DURATION / 3)
+    > button
+      COLOR = rgba(255,255,255,0.9)
+      > abbr
+        color: COLOR
+      border-top: BORDER = solid 1px COLOR
+      border-bottom: BORDER
+      border-left: BORDER
+      &:first-child
+        border-radius: .5rem 0 0 .5rem
+      &:last-child
+        border-radius: 0 .5rem .5rem 0
+        border-right: BORDER
+      &.active
+        background-color: rgba(255,255,255,0.45)
+        // > abbr
+        //   color: THEME
 
-  > article > header [data-molecule="navigation"] button
-    color: rgba(255,255,255,0.5)
+
+  > article > header [data-molecule=navigation] button
+    color: rgba(255,255,255,0.75)
     &:active
       color: WHITE !important
 
-  > aside > header [data-molecule="navigation"] button
+  > aside > header [data-molecule=navigation] button
     color: lighten(DARK, 75%)
     &:active
       color: WHITE !important
 
-  > article > section [data-molecule="navigation"] > [data-atom="button"]
+  > article > section [data-molecule=navigation] > [data-atom="button"]
       &:not(:first-child):not(:last-child)
         border-radius: 0
       &:not(:first-child)
@@ -25,21 +41,12 @@
       &:last-child
         border-radius: 0 BORDER_RADIUS BORDER_RADIUS 0
 
-  > aside > section [data-molecule="navigation"]
-    & [data-atom="link"]
-      font-weight: normal
-      &:not(.active)
-        color: lighten(DARK, 50%)
-      &.active
-        color: WHITE
-
-  > article > footer [data-molecule="navigation"] button, > article > [data-molecule="navigation"] button
+  > article > footer [data-molecule=navigation] button, > article > [data-molecule=navigation] button
     color: lighten(DARK, 35%)
     &:active, &.active
       color: WHITE
 
-  > article > footer [data-molecule="navigation"] button
-    text-shadow: 0 .1rem darken(DARK, 12.5%)
+  > article > footer [data-molecule=navigation] button
     &.active
       background-color: darken(DARK, 25%)
 
@@ -48,9 +55,9 @@
 
 @media screen and (min-width: 1024px)
   [data-atoms="app"]
-    > article > header [data-molecule="navigation"] button:hover
+    > article > header [data-molecule=navigation] button:hover
       color: WHITE !important
 
-    > article > footer [data-molecule="navigation"] button, > article > [data-molecule="navigation"] button
+    > article > footer [data-molecule=navigation] button, > article > [data-molecule=navigation] button
       &:hover
         color: WHITE

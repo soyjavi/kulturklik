@@ -2,3 +2,4 @@ node_modules
 app/assets/css/atoms.*.css
 app/assets/js/atoms.*.js
 app/assets/scaffold/
+source/kulturklik.keys.coffee

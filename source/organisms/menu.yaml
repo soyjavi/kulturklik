@@ -1,0 +1,24 @@
+id: menu
+children:
+  - Organism.Header:
+      children:
+        - Atom.Heading:
+            text: Categorías
+            style: left
+
+  - Organism.Section:
+      id: main
+      children:
+        - Molecule.List:
+            children: []
+            bind:
+              entity: __.Entity.Category
+              atom: Atom.Li
+              events:
+                - touch
+              create: true
+            events:
+              - select
+            callbacks:
+              - onCategory
+

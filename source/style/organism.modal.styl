@@ -1,10 +1,9 @@
 [data-system=modal]
-  visibility: hidden
+  &:not(.active)
+    display: none
   &.active
-    visibility: visible
     background-color: rgba(0,0,0,0.75)
     & > [data-organism]
-      backface-visibility hidden
       vendor(animation-duration, ANIMATION_DURATION)
       vendor(animation-timing-function, ANIMATION_EASE)
       &.show
@@ -48,10 +47,8 @@
 
 @keyframes modal-show
   0%
-    opacity: 0
     transform: translateY(500%)
   60%
-    opacity: 1
     transform: translateY(-7%)
   80%
     transform: translateY(2%)

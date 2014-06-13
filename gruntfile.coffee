@@ -94,3 +94,4 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks 'grunt-contrib-watch'
 
   grunt.registerTask 'default', ['concat:app', 'coffee:app', 'uglify:app', 'stylus:app', 'yaml:scaffold']
+  grunt.registerTask 'build', ['uglify:build_js', 'concat:build_css']

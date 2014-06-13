@@ -1,6 +1,6 @@
 "use strict"
 
-class Atoms.Entity.Event extends Atoms.Class.Entity
+class __.Entity.Event extends Atoms.Class.Entity
 
   @fields  "id", "title", "description", "image",
            "category", "tags", "type",

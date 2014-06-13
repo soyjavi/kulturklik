@@ -1,10 +1,9 @@
 [data-atoms="app"] > article
-  transform-origin: 50% 100%
-
   vendor(animation-fill-mode, forwards)
   vendor(animation-duration, ANIMATION_DURATION)
   vendor(animation-timing-function, ANIMATION_EASE)
   &.active
+    background-color: darken(BACKGROUND, 5%)
     &.aside
       &:not(.right)
         left: ASIDE_WIDTH
@@ -61,13 +60,6 @@
       vendor(animation-direction, reverse)
       vendor(animation-fill-mode, forwards)
       vendor(animation-name, article-aside-right)
-
-  header
-    background-color: THEME
-
-  footer
-    background: DARK
-
 
 TRANSLATE = 100%
 OPACITY   = 0.75

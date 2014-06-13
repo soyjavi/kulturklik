@@ -1,16 +1,21 @@
-id: explorer
+id: main
 children:
   - Organism.Header:
+      id: header
       children:
-        - Atom.Heading:
-            size: h1
-            text: KulturKlik
         - Molecule.Navigation:
             style: left
             children:
               - Atom.Button:
                   icon: navicon
                   path: menu
+        - Atom.Heading:
+            size: h1
+            text: Kulturklik
+
+  # - Molecule.Search:
+  #     events:
+  #       - change
 
   - Molecule.Navigation:
       events:
@@ -20,27 +25,23 @@ children:
       children:
         - Atom.Button:
             text: Hoy
-            path: explorer/today
+            path: main/today
         - Atom.Button:
             text: Mañana
-            path: explorer/tomorrow
-        # - Atom.Button:
-        #     text: Favorítos
-        #     path: explorer/likes
+            path: main/tomorrow
 
   - Organism.Section:
       id: today
       events:
         - scroll
-        - pull
       children:
         - Molecule.List:
             id: list
             bind:
-              entity: Event
+              entity: Atoms.App.Entity.Event
               atom: Atom.Li
               events:
-                - singleTap
+                - touch
               destroy: true
             events:
               - select
@@ -49,41 +50,16 @@ children:
 
   - Organism.Section:
       id: tomorrow
-      events:
-        - scroll
-        - pull
       children:
         - Molecule.List:
             id: list
+            bind:
+              entity: Atoms.App.Entity.Event
+              atom: Atom.Li
+              events:
+                - touch
+              destroy: true
             events:
               - select
             callbacks:
               - onEvent
-            bind:
-              entity: Event
-              atom: Atom.Li
-              events:
-                - singleTap
-              destroy: true
-
-
-  - Organism.Section:
-      id: likes
-      events:
-        - scroll
-        - pull
-      children:
-        - Molecule.List:
-            id: list
-            events:
-              - select
-            callbacks:
-              - onEvent
-            bind:
-              entity: Like
-              atom: Atom.Li
-              events:
-                - singleTap
-              create: true
-              update: false
-              destroy: true

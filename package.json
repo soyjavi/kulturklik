@@ -1,7 +1,7 @@
 {
   "name"            : "kulturklik",
   "version"         : "1.0.0",
-  "description"     : "Mobile Client",
+  "description"     : "Kulturklik client",
   "author"          : "undefined <undefined>",
   "homepage"        : "http://tapquo.com",
   "license"         : {

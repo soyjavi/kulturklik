@@ -2,31 +2,20 @@ class Atoms.Organism.Session extends Atoms.Organism.Article
 
   @scaffold "assets/scaffold/session.json"
 
-  STORAGE_KEY = "kulturklik"
-
-  constructor: ->
+  render: ->
     super
-    Appnima.key = "NTM2YTZlZWYxZWFkMTZjMzQzOWE1NzM3OkljbjRFRHdiQ252b0JkdXBxdThvdHpiV2phbVRpOG8="
+    Appnima.key = __.key.appnima
 
-  # Instance Methods
+  # Instance methods
   get: ->
-    JSON.parse localStorage.getItem STORAGE_KEY
+    Appnima.User.session()
 
-  set: (session) ->
-    localStorage.setItem STORAGE_KEY, JSON.stringify(session)
+  # Children bubble events
+  onSuccess: (event) ->
+    console.log "onSuccess", event
+    Atoms.Url.path "main/today"
 
-  logout: ->
-    window.localStorage.removeItem STORAGE_KEY
-
-  # Children Bubble Events
-  onLogin: (event, dispatcher, hierarchy...) ->
-    console.log "onLogin", arguments
-
-  onSignup: (event, dispatcher, hierarchy...) ->
-    console.log "onSignup", arguments
-
-  onError: (event, dispatcher, hierarchy...) ->
-    console.log "onError", arguments
-
+  onAppnimaSessionError: (event, dispatcher, hierarchy...) ->
+    console.log "onAppnimaSessionError", event
 
 new Atoms.Organism.Session()

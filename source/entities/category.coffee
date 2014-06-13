@@ -1,10 +1,10 @@
 "use strict"
 
-class Atoms.Entity.Category extends Atoms.Class.Entity
+class __.Entity.Category extends Atoms.Class.Entity
 
   @fields "id", "name", "count"
 
   parse: ->
     text        : @name
-    info        : @count
+    # info        : @count
     style       : "category_#{@id}"

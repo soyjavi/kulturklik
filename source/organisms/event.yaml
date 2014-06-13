@@ -1,48 +1,47 @@
-id: item
+id: event
 children:
   - Organism.Header:
       id: header
       children:
         - Atom.Heading:
-            id: title
+            id: category
+            size: h2
+            text: category
+        - Atom.Heading:
+            size: h3
+            text: Kulturklik
         - Molecule.Navigation:
             style: left
             children:
               - Atom.Button:
-                  icon: back
+                  icon: left
                   path: back
-        - Molecule.Navigation:
-            style: right
-            children:
-              - Atom.Button:
-                  icon: ios7-star
-                  callbacks:
-                    - onLike
 
   - Organism.Section:
       id: info
+      style: align center
       children:
         - Atom.Figure:
             id: image
             style: big
+            url: ""
+        - Atom.Heading:
+            id: title
+            size: h3
+            style: margin-top
+            text: ""
         - Molecule.Div:
-            id: general
-            style: padding-all glass
+            id: extra
+            style: margin-left margin-right
             children:
-              - Atom.Heading:
-                  id: title
-              - Atom.Heading:
-                  id: address
-                  size: h2
               - Atom.Label:
                   id: schedule
                   icon: ios7-clock-outline
+                  text: ""
               - Atom.Label:
                   id: price
                   icon: card
-              - Molecule.Tags:
-                  id: tags
-                  style: margin-top
+                  text: b
         - Molecule.Div:
             id: schedule
             children:
@@ -54,7 +53,14 @@ children:
                   id: schedule
         - Atom.GMap:
             id: map
-            style: small margin-left margin-right
-        - Molecule.Div:
+            style: small margin-top margin-left margin-right
+        - Atom.Text:
+            id: address
+            style: tiny
+            value: ""
+        - Atom.Text:
             id: description
+            style: margin-all small align justify
+        - Molecule.Tags:
+            id: tags
             style: margin-all

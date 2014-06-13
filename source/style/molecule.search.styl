@@ -1,11 +1,12 @@
-[data-atoms="app"]
-  section [data-extend="search"]
+[data-atoms=app]
+  [data-organism=section] > [data-molecule=form][data-extend=search]
     > button
       box-shadow: none !important
       border-radius: 0 BORDER_RADIUS BORDER_RADIUS 0
       background-color: FORM_COLOR
 
-  [data-molecule="navigation"] > [data-extend="search"]
-    background-color: darken(THEME, 10%)
+  [data-organism=article] > [data-molecule=form][data-extend=search]
+    background-color: THEME
+    transition margin-top (ANIMATION_DURATION / 3)
     > *
       border-radius: 1rem

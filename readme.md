@@ -3,5 +3,8 @@
 
 
 ![image](captures/categories.png)
+
 ![image](captures/category.png)
+
 ![image](captures/event.png)
+

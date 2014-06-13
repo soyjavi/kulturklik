@@ -1,3 +1,5 @@
+"use strict"
+
 class Atoms.Organism.Session extends Atoms.Organism.Article
 
   @scaffold "assets/scaffold/session.json"
@@ -12,7 +14,6 @@ class Atoms.Organism.Session extends Atoms.Organism.Article
 
   # Children bubble events
   onSuccess: (event) ->
-    console.log "onSuccess", event
     Atoms.Url.path "main/today"
 
   onAppnimaSessionError: (event, dispatcher, hierarchy...) ->

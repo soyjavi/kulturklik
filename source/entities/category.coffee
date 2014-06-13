@@ -6,5 +6,5 @@ class __.Entity.Category extends Atoms.Class.Entity
 
   parse: ->
     text        : @name
-    # info        : @count
+    info        : @count
     style       : "category_#{@id}"

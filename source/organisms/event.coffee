@@ -1,3 +1,5 @@
+"use strict"
+
 class Atoms.Organism.Event extends Atoms.Organism.Article
 
   @scaffold "assets/scaffold/event.json"

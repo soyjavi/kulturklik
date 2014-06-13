@@ -29,8 +29,7 @@ window.KulturKlik = do ->
 
   Atoms.$ ->
     if __.Article.Session.get()
-      __.Aside.Menu.render().then (error, result) ->
-        Atoms.Url.path "main/today"
+      __.Aside.Menu.render().then (error, result) -> Atoms.Url.path "main/today"
     else
       Atoms.Url.path "session/appnima"
 

@@ -2,8 +2,8 @@
   "name"            : "kulturklik",
   "version"         : "1.0.0",
   "description"     : "Kulturklik client",
-  "author"          : "undefined <undefined>",
-  "homepage"        : "http://tapquo.com",
+  "author"          : "@soyjavi",
+  "homepage"        : "https://twitter.com/soyjavi",
   "license"         : {
     "type": "MIT"
   },

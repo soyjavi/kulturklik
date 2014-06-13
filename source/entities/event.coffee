@@ -10,9 +10,9 @@ class __.Entity.Event extends Atoms.Class.Entity
 
   parse: ->
     image       : @image
-    info        : __schedule @schedule
     text        : @title
     description : @address
+    info        : __schedule @schedule
     style       : "category_#{@category.id}"
 
 __schedule = (value) ->

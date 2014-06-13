@@ -1,3 +1,5 @@
+"use strict"
+
 class Atoms.Organism.Main extends Atoms.Organism.Article
 
   @scaffold "assets/scaffold/main.json"

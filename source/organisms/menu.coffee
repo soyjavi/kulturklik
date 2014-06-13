@@ -1,3 +1,5 @@
+"use strict"
+
 class Atoms.Organism.Menu extends Atoms.Organism.Aside
 
   @scaffold "assets/scaffold/menu.json"

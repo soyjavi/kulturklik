@@ -12,6 +12,7 @@ class Atoms.Organism.Main extends Atoms.Organism.Article
     @context = "today"
     do @fetch
 
+  # ============================================================================
   # Instance Methods
   # ============================================================================
   fetch: (page=0, @category=undefined, destroy = false) ->
@@ -36,14 +37,14 @@ class Atoms.Organism.Main extends Atoms.Organism.Article
       # radio     : 100
     parameters.category = @category if @category
     @el.attr "data-category", @category
-
-    KulturKlik.proxy("GET", "search", parameters, background = false).then (error, response) =>
-      console.log "GET/search", response.results.length
+    background = if parameters.page is 0 then false else true
+    KulturKlik.proxy("GET", "search", parameters, background).then (error, response) =>
       events = (__.Entity.Event.create result for result in response.results)
       @[@context].list.entity events, append = true
       @fetching = false if response.results.length is 32
       @[@context].refresh()
 
+  # ============================================================================
   # Children bubble events
   # ============================================================================
   onContext: (event, dispatcher) ->
@@ -53,21 +54,12 @@ class Atoms.Organism.Main extends Atoms.Organism.Article
   onEvent: (atom, dispatcher, hierarchy...) ->
     __.Article.Event.show atom.entity
 
-  onSearchChange: (event, dispatcher) ->
-    value = dispatcher.value().toLowerCase()
-    if value
-      filter = (entity) -> entity if entity.title.toLowerCase().indexOf(value) > -1
-      @tomorrow.list.select filter
-      @today.list.select filter
-    else
-      @today.list.all()
-      @tomorrow.list.all()
-
   onSectionScroll: (event, dispatcher) ->
     super
     if not @fetching and event.down and (event.height - event.scroll) < 128
       @fetch @page[@context], @category
 
+  # ============================================================================
   # Private Methods
   # ============================================================================
   __resetPagination: ->

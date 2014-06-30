@@ -1,0 +1,13 @@
+{
+  "name": "atoms-app-theme",
+  "version": "0.05.08",
+  "homepage": "https://github.com/tapquo/atoms-app-theme",
+  "authors": [
+    "@soyjavi <javi@tapquo.com>"
+  ],
+  "description": "Theme for APP extension of Atoms.",
+  "keywords": [
+    "atoms"
+  ],
+  "license": "MIT"
+}

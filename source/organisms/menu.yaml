@@ -3,14 +3,13 @@ children:
   - Organism.Header:
       children:
         - Atom.Heading:
-            text: Categorías
+            value: Categorías
             style: left
 
   - Organism.Section:
       id: main
       children:
         - Molecule.List:
-            children: []
             bind:
               entity: __.Entity.Category
               atom: Atom.Li

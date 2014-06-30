@@ -7,6 +7,9 @@ class Atoms.Organism.Menu extends Atoms.Organism.Aside
   ALL_LABEL = "Todas"
   UNALVAILABLE_CATEGORIES = ["artes visuales", "museos"]
 
+  # ============================================================================
+  # Instance Methods
+  # ============================================================================
   render: ->
     super
     promise = new Hope.Promise()
@@ -17,12 +20,13 @@ class Atoms.Organism.Menu extends Atoms.Organism.Aside
       promise.done null, true
     promise
 
+  # ============================================================================
   # Children bubble events
+  # ============================================================================
   onCategory: (atom, dispatcher, hierarchy...) ->
     category = if atom.entity.id? then atom.entity.id or ""
     __.Article.Main.fetch 0, category, destroy = true
     __.Article.Main.aside @attributes.id
     atom.el.addClass("active").siblings().removeClass("active")
-
 
 new Atoms.Organism.Menu()

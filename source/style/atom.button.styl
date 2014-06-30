@@ -1,15 +1,16 @@
 button
   cursor: pointer
 
-  [data-atoms="app"] section &
-    border-radius: (BORDER_RADIUS * 1.25)
+  [data-atoms=app] [data-organism=header] &
+    > abbr
+      font-weight: FONT_WEIGHT_NORMAL
+
+  [data-atoms=app] section &
+    border-radius: BORDER_RADIUS
     background-color: BUTTON
     color: darken(BUTTON, 50%)
-
-    &, & > abbr
-      font-weight: FONT_WEIGHT_BOLD
-      font-size: FONT_SIZE_TINY
-      text-transform: uppercase
+    > abbr
+      font-weight: FONT_WEIGHT_NORMAL
 
     &:not([disabled])
       transition: opacity 0.25s ease, background-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease
@@ -18,7 +19,6 @@ button
       &:active
         color: WHITE
         background-color: darken(BUTTON, PERCENT)
-        box-shadow inset 0 1px 0 rgba(0,0,0, 0.1)
 
       &.accept
         background-color: ACCEPT
@@ -33,21 +33,16 @@ button
         &:active
           background-color: darken(WARNING, PERCENT)
       &.theme
-        background-color: darken(THEME, 15%)
+        background-color: THEME
         &:active
           background-color: darken(THEME, PERCENT)
 
-      &:not(.accept):not(.cancel):not(.warning):not(.theme)
-        box-shadow inset 0 -1px rgba(0,0,0, 0.1)
-
       &.accept, &.cancel, &.warning, &.theme
-        box-shadow inset 0 -1px rgba(0,0,0, 0.1)
         color: WHITE
 
     &[disabled]
-      opacity: 0.25
-      // & > abbr, & .icon
-      //   opacity: 0.35
+      & > abbr, & .icon
+        opacity: 0.35
 
   [data-atoms=app] & > small
     font-weight: bold

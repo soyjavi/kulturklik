@@ -22,20 +22,23 @@
         animation modal-loading SPEED (SPEED / 2) infinite
 
   & > :not([data-extend=loading])
+    background-color: lighten(BACKGROUND, 2.5%)
+    color: darken(BACKGROUND, 75%)
+
     &.accept > header
       background-color: ACCEPT
     &.cancel > header
       background-color: CANCEL
     &.warning > header
       background-color: WARNING
-    &:not(.accept):not(.cancel):not(.warning) > header
-      background-color: THEME
+    &.accept, &.cancel, &.warning
+      > header
+        color: WHITE
 
-    & > header
-      color: WHITE
-    & > section, & > footer
-      background-color: WHITE
-      color: COLOR
+
+    > footer
+      background-color: darken(BACKGROUND, 2.5%)
+      border-top: solid 1px darken(BACKGROUND, 5%)
 
   & > [data-extend=loading]
     background: darken(DARK, 50%)

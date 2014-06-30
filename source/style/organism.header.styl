@@ -1,10 +1,11 @@
 [data-atoms=app]
-  > article > header
+  > [data-organism=article] > [data-organism=header]
     background-color: THEME
     transition margin-top (ANIMATION_DURATION / 3)
+    // box-shadow inset 0 -.1rem darken(THEME, 10%), 0 .15rem rgba(0,0,0,0.075)
 
   &.standalone
-    > article > header
-      border-color: THEME
-    > aside > header
-      border-color: darken(DARK, 10%)
+    > [data-organism=article] > [data-organism=header]
+      border-top-color: THEME
+    > [data-organism=aside] > [data-organism=header]
+      border-top-color: darken(DARK, 10%)

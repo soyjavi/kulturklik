@@ -11,11 +11,7 @@ children:
                   path: menu
         - Atom.Heading:
             size: h1
-            text: Kulturklik
-
-  # - Molecule.Search:
-  #     events:
-  #       - change
+            value: Kulturklik
 
   - Molecule.Navigation:
       events:
@@ -50,6 +46,8 @@ children:
 
   - Organism.Section:
       id: tomorrow
+      events:
+        - scroll
       children:
         - Molecule.List:
             id: list

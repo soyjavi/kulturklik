@@ -1,30 +1,23 @@
-[data-atoms="app"]
+[data-atoms=app]
 
   > article > [data-molecule=navigation]
     background-color: THEME
     transition margin-top (ANIMATION_DURATION / 3)
     > button
-      COLOR = rgba(255,255,255,0.9)
       > abbr
-        color: COLOR
-      border-top: BORDER = solid 1px COLOR
-      border-bottom: BORDER
-      border-left: BORDER
-      &:first-child
-        border-radius: .5rem 0 0 .5rem
-      &:last-child
-        border-radius: 0 .5rem .5rem 0
-        border-right: BORDER
+        color: WHITE
+        font-weight: FONT_WEIGHT_NORMAL
+        opacity: 0.5
       &.active
-        background-color: rgba(255,255,255,0.45)
-        // > abbr
-        //   color: THEME
-
+        box-shadow: inset 0 -.2rem rgba(255,255,255,0.5)
+        > abbr
+          opacity: 1
 
   > article > header [data-molecule=navigation] button
-    color: rgba(255,255,255,0.75)
+    color: WHITE
+    opacity: 0.5
     &:active
-      color: WHITE !important
+      opacity: 1
 
   > aside > header [data-molecule=navigation] button
     color: lighten(DARK, 75%)
@@ -50,11 +43,16 @@
     &.active
       background-color: darken(DARK, 25%)
 
-  > [data-system=modal] > article > footer > nav > button:not(:last-child)
-    border-bottom: solid 1px darken(BACKGROUND, 5%)
+  > [data-system=modal] > article > footer
+    > nav > button
+      font-weight: FONT_WEIGHT_NORMAL
+      text-transform: uppercase
+
+      &.default
+        color: THEME
 
 @media screen and (min-width: 1024px)
-  [data-atoms="app"]
+  [data-atoms=app]
     > article > header [data-molecule=navigation] button:hover
       color: WHITE !important
 

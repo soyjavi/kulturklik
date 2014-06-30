@@ -1,0 +1,54 @@
+{
+  "id": "menu",
+  "children": [
+    {
+      "Organism.Header": {
+        "children": [
+          {
+            "Atom.Heading": {
+              "size": "h1",
+              "text": "Options"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Organism.Section": {
+        "children": [
+          {
+            "Molecule.Div": {
+              "children": [
+                {
+                  "Atom.Li": {
+                    "id": "profile",
+                    "image": "http://cdn.tapquo.com/photos/cata.jpg",
+                    "text": "Cataflux",
+                    "description": "cata@tapquo.com"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Molecule.List": {
+              "children": [],
+              "bind": {
+                "entity": "__.Entity.Category",
+                "atom": "Atom.Li",
+                "create": true
+              },
+              "events": [
+                "select"
+              ],
+              "callbacks": [
+                "onSelectCategory"
+              ]
+            }
+          }
+        ],
+        "id": "main"
+      }
+    }
+  ]
+}

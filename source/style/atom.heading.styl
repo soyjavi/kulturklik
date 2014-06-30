@@ -1,12 +1,11 @@
 [data-atoms=app]
-  article, aside
+  [data-organism=article], [data-organism=aside]
     [data-organism=header] > [data-atom=heading]
       font-size: 1.1rem
-      font-weight: FONT_WEIGHT_NORMAL
-      text-transform: capitalize
+      font-weight: FONT_WEIGHT_BOLD
       color: WHITE
       & + [data-atom=heading]
-        font-weight: FONT_WEIGHT_THIN
+        font-weight: FONT_WEIGHT_NORMAL
         opacity: 0.75
 
   [data-organism=section] >

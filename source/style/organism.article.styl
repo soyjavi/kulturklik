@@ -1,9 +1,17 @@
-[data-atoms="app"] > article
+[data-atoms="app"] > [data-organism=article]
   vendor(animation-fill-mode, forwards)
   vendor(animation-duration, ANIMATION_DURATION)
   vendor(animation-timing-function, ANIMATION_EASE)
+
+  > [data-organism=header] > *
+    transition opacity (ANIMATION_DURATION * 2) ANIMATION_EASE
+    opacity: 0
+
   &.active
     background-color: darken(BACKGROUND, 5%)
+    > [data-organism=header] > *
+      opacity: 1
+
     &.aside
       &:not(.right)
         left: ASIDE_WIDTH
@@ -62,7 +70,7 @@
       vendor(animation-name, article-aside-right)
 
 TRANSLATE = 100%
-OPACITY   = 0.75
+OPACITY   = 1.0
 SCALE     = 0.9
 
 @keyframes article-in

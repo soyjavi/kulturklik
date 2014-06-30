@@ -5,7 +5,7 @@ module.exports = (grunt) ->
 
     meta:
       temp    : 'build',
-      build   : 'app/assets',
+      build   : 'www/assets',
       banner  : '/* <%= pkg.name %> v<%= pkg.version %> - <%= grunt.template.today("yyyy/m/d") %>\n' +
                 '   <%= pkg.homepage %>\n' +
                 '   Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author %>' +

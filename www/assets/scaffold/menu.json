@@ -1,0 +1,42 @@
+{
+  "id": "menu",
+  "children": [
+    {
+      "Organism.Header": {
+        "children": [
+          {
+            "Atom.Heading": {
+              "value": "Categorías",
+              "style": "left"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Organism.Section": {
+        "id": "main",
+        "children": [
+          {
+            "Molecule.List": {
+              "bind": {
+                "entity": "__.Entity.Category",
+                "atom": "Atom.Li",
+                "events": [
+                  "touch"
+                ],
+                "create": true
+              },
+              "events": [
+                "select"
+              ],
+              "callbacks": [
+                "onCategory"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

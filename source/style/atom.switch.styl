@@ -1,19 +1,15 @@
 [data-atoms="app"]
 
   input[type=checkbox]
+    RADIUS = 1rem
     border: none
-    border-radius: RADIUS = 1rem
-    background-color: lighten(FORM_COLOR, 30%)
-    transition all 300ms 150ms
-    overflow: hidden
-
+    border-radius: RADIUS
+    background-color: FORM_COLOR
+    transition all ANIMATION_DURATION (ANIMATION_DURATION / 2) ANIMATION_EASE
     &:after
-      background-color: lighten(FORM_COLOR, 95%)
-      border: none
+      background-color: lighten(BACKGROUND, 50%)
       border-radius: RADIUS
-      transition left 150ms
+      transition left (ANIMATION_DURATION / 2) ANIMATION_EASE
 
     &:checked
       background-color: THEME
-      &:after
-        border-color: SUCCESS

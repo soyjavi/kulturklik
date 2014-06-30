@@ -1,0 +1,127 @@
+{
+  "id": "event",
+  "children": [
+    {
+      "Organism.Header": {
+        "id": "header",
+        "children": [
+          {
+            "Atom.Heading": {
+              "id": "category",
+              "size": "h2",
+              "value": "category"
+            }
+          },
+          {
+            "Atom.Heading": {
+              "size": "h3",
+              "value": "Kulturklik"
+            }
+          },
+          {
+            "Molecule.Navigation": {
+              "style": "left",
+              "children": [
+                {
+                  "Atom.Button": {
+                    "icon": "left",
+                    "path": "back"
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Organism.Section": {
+        "id": "info",
+        "children": [
+          {
+            "Atom.Figure": {
+              "id": "image",
+              "style": "big"
+            }
+          },
+          {
+            "Molecule.Div": {
+              "id": "summary",
+              "style": "summary",
+              "children": [
+                {
+                  "Atom.Heading": {
+                    "id": "title"
+                  }
+                },
+                {
+                  "Atom.Text": {
+                    "id": "address"
+                  }
+                },
+                {
+                  "Molecule.Div": {
+                    "id": "extra",
+                    "children": [
+                      {
+                        "Atom.Label": {
+                          "id": "schedule",
+                          "icon": "ios7-clock-outline"
+                        }
+                      },
+                      {
+                        "Atom.Label": {
+                          "id": "price",
+                          "icon": "card"
+                        }
+                      }
+                    ]
+                  }
+                },
+                {
+                  "Molecule.Div": {
+                    "id": "schedule",
+                    "children": [
+                      {
+                        "Atom.Label": {
+                          "id": "started_at"
+                        }
+                      },
+                      {
+                        "Atom.Label": {
+                          "id": "finished_at"
+                        }
+                      },
+                      {
+                        "Atom.Label": {
+                          "id": "schedule"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Atom.GMap": {
+              "id": "map"
+            }
+          },
+          {
+            "Molecule.Tags": {
+              "id": "tags",
+              "style": "margin-all"
+            }
+          },
+          {
+            "Atom.Text": {
+              "id": "description",
+              "style": "margin-left margin-right align justify small"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

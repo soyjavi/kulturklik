@@ -6,7 +6,8 @@
       background-color: FORM_COLOR
 
   [data-organism=article] > [data-molecule=form][data-extend=search]
-    background-color: THEME
+    background-color: WHITE
+    border-bottom: DIVIDER
     transition margin-top (ANIMATION_DURATION / 3)
-    > *
-      border-radius: 1rem
+    > [data-atom=input]
+      box-shadow: none

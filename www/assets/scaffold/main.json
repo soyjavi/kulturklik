@@ -1,0 +1,113 @@
+{
+  "id": "main",
+  "children": [
+    {
+      "Organism.Header": {
+        "id": "header",
+        "children": [
+          {
+            "Molecule.Navigation": {
+              "style": "left",
+              "children": [
+                {
+                  "Atom.Button": {
+                    "icon": "navicon",
+                    "path": "menu"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "Atom.Heading": {
+              "size": "h1",
+              "value": "Kulturklik"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Molecule.Navigation": {
+        "events": [
+          "select"
+        ],
+        "callbacks": [
+          "onContext"
+        ],
+        "children": [
+          {
+            "Atom.Button": {
+              "text": "Hoy",
+              "path": "main/today"
+            }
+          },
+          {
+            "Atom.Button": {
+              "text": "Mañana",
+              "path": "main/tomorrow"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Organism.Section": {
+        "id": "today",
+        "events": [
+          "scroll"
+        ],
+        "children": [
+          {
+            "Molecule.List": {
+              "id": "list",
+              "bind": {
+                "entity": "Atoms.App.Entity.Event",
+                "atom": "Atom.Li",
+                "events": [
+                  "touch"
+                ],
+                "destroy": true
+              },
+              "events": [
+                "select"
+              ],
+              "callbacks": [
+                "onEvent"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    {
+      "Organism.Section": {
+        "id": "tomorrow",
+        "events": [
+          "scroll"
+        ],
+        "children": [
+          {
+            "Molecule.List": {
+              "id": "list",
+              "bind": {
+                "entity": "Atoms.App.Entity.Event",
+                "atom": "Atom.Li",
+                "events": [
+                  "touch"
+                ],
+                "destroy": true
+              },
+              "events": [
+                "select"
+              ],
+              "callbacks": [
+                "onEvent"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

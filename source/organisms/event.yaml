@@ -6,10 +6,10 @@ children:
         - Atom.Heading:
             id: category
             size: h2
-            text: category
+            value: category
         - Atom.Heading:
             size: h3
-            text: Kulturklik
+            value: Kulturklik
         - Molecule.Navigation:
             style: left
             children:
@@ -19,48 +19,42 @@ children:
 
   - Organism.Section:
       id: info
-      style: align center
       children:
         - Atom.Figure:
             id: image
             style: big
-            url: ""
-        - Atom.Heading:
-            id: title
-            size: h3
-            style: margin-top
-            text: ""
         - Molecule.Div:
-            id: extra
-            style: margin-left margin-right
+            id: summary
+            style: summary
             children:
-              - Atom.Label:
+              - Atom.Heading:
+                  id: title
+              - Atom.Text:
+                  id: address
+              - Molecule.Div:
+                  id: extra
+                  children:
+                    - Atom.Label:
+                        id: schedule
+                        icon: ios7-clock-outline
+                    - Atom.Label:
+                        id: price
+                        icon: card
+              - Molecule.Div:
                   id: schedule
-                  icon: ios7-clock-outline
-                  text: ""
-              - Atom.Label:
-                  id: price
-                  icon: card
-                  text: b
-        - Molecule.Div:
-            id: schedule
-            children:
-              - Atom.Label:
-                  id: started_at
-              - Atom.Label:
-                  id: finished_at
-              - Atom.Label:
-                  id: schedule
+                  children:
+                    - Atom.Label:
+                        id: started_at
+                    - Atom.Label:
+                        id: finished_at
+                    - Atom.Label:
+                        id: schedule
         - Atom.GMap:
             id: map
-            style: small margin-top margin-left margin-right
-        - Atom.Text:
-            id: address
-            style: tiny
-            value: ""
-        - Atom.Text:
-            id: description
-            style: margin-all small align justify
         - Molecule.Tags:
             id: tags
             style: margin-all
+        - Atom.Text:
+            id: description
+            style: margin-left margin-right align justify small
+

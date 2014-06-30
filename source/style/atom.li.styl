@@ -1,24 +1,44 @@
-[data-atoms="app"]
-
+[data-atoms=app]
   [data-atom=li]
     > figure
       background-color: darken(BACKGROUND, 5%)
       color: WHITE
-
+      border-radius: 50%
+      box-shadow: 0 0 0 1px darken(BACKGROUND, 5%)
     strong
       font-weight: FONT_WEIGHT_NORMAL
     span, small
       font-weight: FONT_WEIGHT_THIN
 
-  article > section
-    & [data-atom=li]
-      border-bottom: solid 1px darken(BACKGROUND, 10%)
-      &.anchor
-        color: darken(BACKGROUND, 50%)
-    &:not(.padding) [data-atom=li]:not(.anchor)
+  [data-organism=article] > [data-organism=section]
+    [data-atom=li]
       background-color: WHITE
+      &.anchor
+        color: darken(BACKGROUND, 20%)
+        font-weight: FONT_WEIGHT_BOLD
+      &:not(.anchor)
+        color: darken(BACKGROUND, 65%)
+      > div
+        > span, > small
+          color: darken(BACKGROUND, 40%)
 
-  aside > section [data-atom=li]
+    &:not(.padding) [data-atom=li]
+      &:not(.anchor)
+        border-bottom: DIVIDER
+
+    &.padding [data-atom=li]
+      &.anchor
+        background-color: transparent
+      &:not(.anchor)
+        margin-bottom: .9rem
+        border: DIVIDER
+        box-shadow: 0 .2rem .4rem darken(BACKGROUND, 2.5%)
+
+
+    &.no-divider
+      border-bottom: none
+
+  [data-organism=aside] > [data-organism=section] [data-atom=li]
     border-bottom: solid 1px lighten(DARK, 5%)
     &:not(.anchor)
       color: lighten(DARK, 85%)
